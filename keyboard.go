@@ -1,4 +1,4 @@
-package shiny
+package drone
 
 // KeyboardKey represents the pressed key
 type KeyboardKey string
