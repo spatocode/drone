@@ -1,80 +1,80 @@
 package drone
 
-// KeyboardKey represents the pressed key
+// KeyboardKey represents the pressed keyboard key
 type KeyboardKey string
 
 const (
-	// Key0 represents the 0 key
+	// Key0 represents the 0 numeric key
 	Key0 KeyboardKey = "0"
-	// Key1 represents the 1 key
+	// Key1 represents the 1 numeric key
 	Key1 KeyboardKey = "1"
-	// Key2 represents the 2 key
+	// Key2 represents the 2 numeric key
 	Key2 KeyboardKey = "2"
-	// Key3 represents the 3 key
+	// Key3 represents the 3 numerickey
 	Key3 KeyboardKey = "3"
-	// Key4 represents the 4 key
+	// Key4 represents the 4 numeric key
 	Key4 KeyboardKey = "4"
-	// Key5 represents the 5 key
+	// Key5 represents the 5 numeric key
 	Key5 KeyboardKey = "5"
-	// Key6 represents the 6 key
+	// Key6 represents the 6 numeric key
 	Key6 KeyboardKey = "6"
-	// Key7 represents the 7 key
+	// Key7 represents the 7 numeric key
 	Key7 KeyboardKey = "7"
-	// Key8 represents the 8 key
+	// Key8 represents the 8 numeric key
 	Key8 KeyboardKey = "8"
-	// Key9 represents the 9 key
+	// Key9 represents the 9 numeric key
 	Key9 KeyboardKey = "9"
-	// KeyA represents the A key
+	// KeyA represents the A alphabet key
 	KeyA KeyboardKey = "A"
-	// KeyB represents the B key
+	// KeyB represents the B alphabet key
 	KeyB KeyboardKey = "B"
-	// KeyC represents the C key
+	// KeyC represents the C alphabet key
 	KeyC KeyboardKey = "C"
-	// KeyD represents the D key
+	// KeyD represents the D alphabet key
 	KeyD KeyboardKey = "D"
-	// KeyE represents the E key
+	// KeyE represents the E alphabet key
 	KeyE KeyboardKey = "E"
-	// KeyF represents the F key
+	// KeyF represents the F alphabetkey
 	KeyF KeyboardKey = "F"
-	// KeyG represents the G key
+	// KeyG represents the G alphabet key
 	KeyG KeyboardKey = "G"
-	// KeyH represents the H key
+	// KeyH represents the H alphabet key
 	KeyH KeyboardKey = "H"
-	// KeyI represents the I key
+	// KeyI represents the I alphabet key
 	KeyI KeyboardKey = "I"
-	// KeyJ represents the J key
+	// KeyJ represents the J alphabet key
 	KeyJ KeyboardKey = "J"
-	// KeyK represents the K key
+	// KeyK represents the K alphabet key
 	KeyK KeyboardKey = "K"
-	// KeyL represents the L key
+	// KeyL represents the L alphabet key
 	KeyL KeyboardKey = "L"
-	// KeyM represents the M key
+	// KeyM represents the M alphabet key
 	KeyM KeyboardKey = "M"
-	// KeyN represents the N key
+	// KeyN represents the N alphabetkey
 	KeyN KeyboardKey = "N"
-	// KeyO represents the O key
+	// KeyO represents the O alphabet key
 	KeyO KeyboardKey = "O"
-	// KeyP represents the P key
+	// KeyP represents the P alphabet key
 	KeyP KeyboardKey = "P"
-	// KeyQ represents the Q key
+	// KeyQ represents the Q alphabet key
 	KeyQ KeyboardKey = "Q"
-	// KeyR represents the R key
+	// KeyR represents the R alphabet key
 	KeyR KeyboardKey = "R"
-	// KeyS represents the S key
+	// KeyS represents the S alphabet key
 	KeyS KeyboardKey = "S"
-	// KeyT represents the T key
+	// KeyT represents the T alphabet key
 	KeyT KeyboardKey = "T"
-	// KeyU represents the U key
+	// KeyU represents the U alphabet key
 	KeyU KeyboardKey = "U"
-	// KeyV represents the V key
+	// KeyV represents the V alphabet key
 	KeyV KeyboardKey = "V"
-	// KeyW represents the W key
+	// KeyW represents the W alphabet key
 	KeyW KeyboardKey = "W"
-	// KeyX represents the X key
+	// KeyX represents the X alphabet key
 	KeyX KeyboardKey = "X"
-	// KeyY represents the Y key
+	// KeyY represents the Y alphabet key
 	KeyY KeyboardKey = "Y"
-	// KeyZ represents the Z key
+	// KeyZ represents the Z alphabet key
 	KeyZ KeyboardKey = "Z"
 
 	// KeyF1 represents the F1 key
@@ -89,7 +89,7 @@ const (
 	KeyF5 KeyboardKey = "F5"
 	// KeyF6 represents the F6 key
 	KeyF6 KeyboardKey = "F6"
-	// KeyF7 represents the 7 key
+	// KeyF7 represents the F7 key
 	KeyF7 KeyboardKey = "F7"
 	// KeyF8 represents the F8 key
 	KeyF8 KeyboardKey = "F8"
