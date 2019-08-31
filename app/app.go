@@ -1,6 +1,7 @@
 package app
 
 import (
+	"github.com/spatocode/drone"
 	"github.com/spatocode/drone/internal/drivers/glfw"
 )
 
@@ -10,8 +11,8 @@ type App struct {
 }
 
 // CreateWindow creates a new window
-func (app *App) CreateWindow(title string, width int, height int) {
-	app.driver.CreateWindow(title, width, height)
+func (app *App) CreateWindow(title string, width int, height int) drone.Window{
+	return app.driver.CreateWindow(title, width, height)
 }
 
 // Launch starts a Drone app

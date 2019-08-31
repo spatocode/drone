@@ -9,7 +9,7 @@ import (
 )
 
 type Driver struct {
-	window *Window
+	window drone.Window
 }
 
 // Ensures we execute on current OS thread
@@ -18,7 +18,7 @@ func init() {
 }
 
 // CreateWindow creates a new window using GLFW
-func (driver *Driver) CreateWindow(title string, width, height int) *Window {
+func (driver *Driver) CreateWindow(title string, width, height int) drone.Window {
 	name := "Drone"
 	if title != "" {
 		name = title
@@ -28,10 +28,10 @@ func (driver *Driver) CreateWindow(title string, width, height int) *Window {
 	if err != nil {
 		drone.LogError("Failed to create a window", err)
 	}
-	
+
 	window := &Window{
-		title: name,
-		width: width,
+		title:  name,
+		width:  width,
 		height: height,
 	}
 
@@ -42,7 +42,7 @@ func (driver *Driver) CreateWindow(title string, width, height int) *Window {
 
 	for !win.ShouldClose() {
 		win.SwapBuffers()
-   		glfw.PollEvents()
+		glfw.PollEvents()
 	}
 
 	return driver.window
@@ -56,7 +56,6 @@ func StartDriver() *Driver {
 		drone.LogError("Failed to initialize GLFW", err)
 	}
 
-	glfw.WindowHint(glfw.Resizable, glfw.False)
 	glfw.WindowHint(glfw.ContextVersionMajor, 3)
 	glfw.WindowHint(glfw.ContextVersionMinor, 2)
 	glfw.WindowHint(glfw.OpenGLProfile, glfw.OpenGLCoreProfile)
