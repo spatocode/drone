@@ -1,23 +1,25 @@
-package app
+package krypton
 
 import (
-	"github.com/spatocode/drone"
-	"github.com/spatocode/drone/internal/drivers/glfw"
+	"github.com/spatocode/krypton"
+	"github.com/go-gl/glfw/v3.2/glfw"
 )
 
-// App represents a drone app
+// App represents a krypton app
 type App struct {
-	driver *glfw.Driver
+	window	krypton.Window
 }
 
-// CreateWindow creates a new window
-func (app *App) CreateWindow(title string, width int, height int) drone.Window{
-	return app.driver.CreateWindow(title, width, height)
+func (app *App) Run() {
 }
 
-// Launch starts a Drone app
-func Launch() *App {
-	driver := glfw.StartDriver()
-	app := &App{driver: driver}
+// Init initializes a krypton app
+func Init() *App {
+	app := new(App)
+	err := glfw.Init()
+	if err != nil {
+		krypton.LogError("Failed to initialize GLFW", err)
+		return
+	}
 	return app
 }

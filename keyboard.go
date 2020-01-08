@@ -1,4 +1,4 @@
-package drone
+package krypton
 
 // KeyboardKey represents the pressed keyboard key
 type KeyboardKey string

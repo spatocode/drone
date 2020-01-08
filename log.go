@@ -1,4 +1,4 @@
-package drone
+package krypton
 
 import (
 	"log"
@@ -6,7 +6,7 @@ import (
 
 // LogError prints an error message to the command line
 func LogError(reason string, err error) {
-	log.Println("Drone error: ", reason)
+	log.Println("Krypton error: ", reason)
 	if err != nil {
 		log.Println("  Cause:", err)
 	}

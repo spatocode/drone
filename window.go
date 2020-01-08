@@ -1,4 +1,4 @@
-package drone
+package krypton
 
 type Window interface {
 	Title() string
