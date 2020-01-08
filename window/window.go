@@ -1,6 +1,8 @@
 package window
 
 import (
+	"runtime"
+
 	"github.com/spatocode/krypton"
 	"github.com/go-gl/glfw/v3.3/glfw"
 )
@@ -12,34 +14,35 @@ type window struct {
 	resizable	bool
 	title		string
 	fullscreen	bool
-	view	glfw.Window
+	view	*glfw.Window
+	visible	bool
+}
+
+func init() {
+	// Make sure OpenGL function calls runs in the same thread.
+	runtime.LockOSThread()
 }
 
 func (win *window) Title() string{
 	return win.title
 }
 
-func (win *window) Resizable(bo bool)  {
-	switch bo {
-	case true:
-		glfw.windowHint(glfw.Resizable, glfw.True)
-	default:
-		glfw.windowHint(glfw.Resizable, glfw.False)
+func (win *window) SetTitle(title string) {
+	win.title = title
+	win.view.SetTitle(title)
+}
+
+func (win *window) Resizable(resize bool)  {
+	if resize {
+		glfw.WindowHint(glfw.Resizable, glfw.True)
+	} else {
+		glfw.WindowHint(glfw.Resizable, glfw.False)
 	}
-	win.resizable = bo
+	win.resizable = resize
 }
 
 func (win *window) FullScreen(bo bool) {
-	switch bo {
-	case true:
-		glfw.windowHint(glfw.Resizable, glfw.True)
-	default:
-		glfw.windowHint(glfw.Resizable, glfw.False)
-	}
-	win.fullscreen = bo
-}
 
-func (win *window) Run() {
 }
 
 func (win *window) destroy() {
@@ -48,10 +51,14 @@ func (win *window) destroy() {
 func (win *window) position() {	
 }
 
-func (win *window) Hide() {	
+func (win *window) Hide() {
+	win.visible = false
+	win.view.Hide()
 }
 
-func (win *window) Show() {	
+func (win *window) Show() {
+	win.visible = true
+	win.view.Show()
 }
 
 func (win *window) Restore() {	
@@ -68,27 +75,37 @@ func (win *window) SetIcon() {
 }
 
 func (win *window) Run() {
-	for !win.ShouldClose() {
-		win.SwapBuffers()
+	win.Show()
+	view := win.view
+	for !view.ShouldClose() {
+		view.SwapBuffers()
 		glfw.PollEvents()
 	}
+
+	defer glfw.Terminate()
 }
 
 // New creates a new window
 func New(title string, width, height int) krypton.Window {
+	err := glfw.Init()
+	if err != nil {
+		krypton.LogError("Failed to initialize GLFW", err)
+	}
+
+	glfw.WindowHint(glfw.Visible, glfw.False)
+
 	name := "Krypton"
 	if title != "" {
 		name = title
 	}
 
-	win, err := glfw.Createwindow(width, height, name, nil, nil)
+	win, err := glfw.CreateWindow(width, height, name, nil, nil)
 	if err != nil {
 		krypton.LogError("Failed to create a window", err)
-		return
 	}
 
 	window := &window{
-		view:	win
+		view:	win,
 		title:  name,
 		width:  width,
 		height: height,
