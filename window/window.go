@@ -48,7 +48,7 @@ func (win *window) FullScreen(bo bool) {
 func (win *window) destroy() {
 }
 
-func (win *window) position() {	
+func (win *window) position(w *glfw.Window, xpos, ypos int) {	
 }
 
 func (win *window) Hide() {
@@ -71,7 +71,45 @@ func (win *window) SetBrightness() {
 }
 
 func (win *window) SetIcon() {
-	
+}
+
+func (win *window) close(w *glfw.Window) {
+}
+
+func (win *window) charInput(w *glfw.Window, char rune) {
+}
+
+func (win *window) charModInput(w *glfw.Window, char rune, mods glfw.ModifierKey) {
+}
+
+func (win *window) mouseClick(w *glfw.Window, button glfw.MouseButton, action glfw.Action, mod glfw.ModifierKey) {
+}
+
+func (win *window) resize(w *glfw.Window, width, height int) {
+}
+
+func (win *window) scroll(w *glfw.Window, xoff, yoff float64) {
+}
+
+func (win *window) keyPress(w *glfw.Window, key glfw.Key, scancode int, action glfw.Action, mods glfw.ModifierKey) {
+}
+
+func (win *window) focus(w *glfw.Window, focused bool) {
+}
+
+func (win *window) cursorMove(w *glfw.Window, xpos, ypos float64) {
+}
+
+func (win *window) frameBuffer(w *glfw.Window, width, height int) {
+}
+
+func (win *window) cursorEnter(w *glfw.Window, entered bool) {
+}
+
+func (win *window) detectJoystick(joy glfw.Joystick, event glfw.PeripheralEvent) {
+}
+
+func (win *window) refresh(w *glfw.Window) {
 }
 
 func (win *window) Run() {
@@ -112,6 +150,20 @@ func New(title string, width, height int) krypton.Window {
 	}
 
 	win.MakeContextCurrent()
+	win.SetCloseCallback(window.close)
+	win.SetCharCallback(window.charInput)
+	win.SetMouseButtonCallback(window.mouseClick)
+	win.SetSizeCallback(window.resize)
+	win.SetScrollCallback(window.scroll)
+	win.SetRefreshCallback(window.refresh)
+	win.SetPosCallback(window.position)
+	win.SetKeyCallback(window.keyPress)
+	win.SetFocusCallback(window.focus)
+	win.SetCursorPosCallback(window.cursorMove)
+	win.SetCursorEnterCallback(window.cursorEnter)
+	win.SetCharModsCallback(window.charModInput)
+	win.SetFramebufferSizeCallback(window.frameBuffer)
+	glfw.SetJoystickCallback(window.detectJoystick)
 
 	return window
 }
