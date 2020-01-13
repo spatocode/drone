@@ -1,4 +1,4 @@
-package krypton
+package karid
 
 import (
 	"log"
@@ -6,7 +6,7 @@ import (
 
 // LogError prints an error message to the command line
 func LogError(reason string, err error) {
-	log.Println("Krypton error: ", reason)
+	log.Println("Karid error: ", reason)
 	if err != nil {
 		log.Println("  Cause:", err)
 	}

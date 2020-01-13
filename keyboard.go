@@ -1,4 +1,4 @@
-package krypton
+package karid
 
 // KeyboardKey represents the pressed keyboard key
 type KeyboardKey string

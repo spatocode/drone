@@ -1,4 +1,4 @@
-package krypton
+package karid
 
 type Event interface {
 }

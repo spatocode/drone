@@ -1,23 +1,23 @@
 package app
 
 import (
-	"github.com/spatocode/krypton"
+	"github.com/spatocode/karid"
 )
 
-// App represents a krypton app
+// App represents a karid app
 type App struct {
-	window	krypton.Window
+	window	karid.Window
 }
 
 func (app *App) Run() {
 	app.window.Run()
 }
 
-func (app *App) RegisterWindow(obj krypton.Window) {
+func (app *App) RegisterWindow(obj karid.Window) {
 	app.window = obj
 }
 
-// Init initializes a krypton app
+// Init initializes a karid app
 func Init() *App {
 	app := new(App)
 	return app

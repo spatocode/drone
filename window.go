@@ -1,4 +1,4 @@
-package krypton
+package karid
 
 type Window interface {
 	Title() string

@@ -3,11 +3,11 @@ package window
 import (
 	"runtime"
 
-	"github.com/spatocode/krypton"
+	"github.com/spatocode/karid"
 	"github.com/go-gl/glfw/v3.3/glfw"
 )
 
-var _ krypton.Window = (*window)(nil)
+var _ karid.Window = (*window)(nil)
 
 type window struct {
 	width, height	int
@@ -124,22 +124,22 @@ func (win *window) Run() {
 }
 
 // New creates a new window
-func New(title string, width, height int) krypton.Window {
+func New(title string, width, height int) karid.Window {
 	err := glfw.Init()
 	if err != nil {
-		krypton.LogError("Failed to initialize GLFW", err)
+		karid.LogError("Failed to initialize GLFW", err)
 	}
 
 	glfw.WindowHint(glfw.Visible, glfw.False)
 
-	name := "Krypton"
+	name := "karid"
 	if title != "" {
 		name = title
 	}
 
 	win, err := glfw.CreateWindow(width, height, name, nil, nil)
 	if err != nil {
-		krypton.LogError("Failed to create a window", err)
+		karid.LogError("Failed to create a window", err)
 	}
 
 	window := &window{
