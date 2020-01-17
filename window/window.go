@@ -16,6 +16,7 @@ type window struct {
 	fullscreen	bool
 	view	*glfw.Window
 	visible	bool
+	renderer karid.Renderer
 }
 
 func init() {
@@ -45,6 +46,10 @@ func (win *window) FullScreen(bo bool) {
 
 }
 
+func (win *window) SetRenderer(renderer karid.Renderer) {
+	win.renderer = renderer
+}
+
 func (win *window) destroy() {
 }
 
@@ -59,6 +64,7 @@ func (win *window) Hide() {
 func (win *window) Show() {
 	win.visible = true
 	win.view.Show()
+	win.renderer.Run()
 }
 
 func (win *window) Restore() {	
