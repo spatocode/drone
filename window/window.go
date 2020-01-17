@@ -17,6 +17,7 @@ type window struct {
 	view	*glfw.Window
 	visible	bool
 	renderer karid.Renderer
+	running bool
 }
 
 func init() {
@@ -64,7 +65,10 @@ func (win *window) Hide() {
 func (win *window) Show() {
 	win.visible = true
 	win.view.Show()
-	win.renderer.Run()
+	if win.renderer && !win.running {
+		win.renderer.Run()
+		win.running = true
+	}
 }
 
 func (win *window) Restore() {	
