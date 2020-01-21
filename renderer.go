@@ -2,5 +2,6 @@ package karid
 
 type Renderer interface {
 	Render(Scene)
-	Draw()
+	Draw(Window)
+	SetSceneSize(int, int)
 }

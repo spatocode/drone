@@ -1,6 +1,6 @@
 package karid
 
 type Scene interface {
-	SetContent(Geometry)
-	Content() Geometry
+	Object()
+	Background() interface{}
 }
