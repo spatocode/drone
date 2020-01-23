@@ -1,6 +1,6 @@
 package karid
 
 type Scene interface {
-	Object()
+	Object() []Object
 	Background() interface{}
 }

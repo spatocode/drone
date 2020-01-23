@@ -9,8 +9,8 @@ type scene struct {
 	camera karid.Camera
 	light  karid.Light
 	object []karid.Object
-	background interface{}
-	fog Fog
+	background karid.Colorable
+	fog *Fog
 }
 
 func (sc *scene) AddObject(obj karid.Object) {
@@ -21,22 +21,22 @@ func (sc *scene) SetCamera(cam karid.Camera) {
 	sc.camera = cam
 }
 
-func (sc *scene) Background() interface{} {
+func (sc *scene) Background() karid.Colorable {
 	return sc.background
 }
 
-func (sc *scene) SetBackground(bg interface{}) {
+func (sc *scene) SetBackground(bg karid.Colorable) {
 	sc.background = bg
 }
 
-func (sc *scene) SetFog(fog Fog) {
+func (sc *scene) SetFog(fog *Fog) {
 	sc.fog = fog
 }
 
 func (sc *scene) Clear() {
 }
 
-func (sc *scene) Object() karid.Object {
+func (sc *scene) Object() []karid.Object {
 	return sc.object
 }
 

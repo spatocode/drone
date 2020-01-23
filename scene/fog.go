@@ -17,5 +17,5 @@ func (fg *Fog) SetColor(color karid.Color) {
 }
 
 func CreateFog(color karid.Color) *Fog {
-	return &Fog{}
+	return &Fog{color}
 }
