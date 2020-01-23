@@ -19,6 +19,7 @@ type Color struct {
 type Position struct {
 	X int
 	Y int
+	Z int
 }
 
 // Size represents the width and heigth of an object
@@ -33,8 +34,8 @@ func NewColor(r, g, b, a uint8) Color {
 }
 
 // NewPosition initialize a new position of an object
-func NewPosition(x, y int) Position {
-	return Position{x, y}
+func NewPosition(x, y, z int) Position {
+	return Position{x, y, z}
 }
 
 // NewSize initialize a new size of an object
