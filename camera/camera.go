@@ -1,14 +1,10 @@
 package camera
 
-import (
-	"github.com/spatocode/karid"
-)
-
 type CameraType int
 
 const (
 	Perspective CameraType =  iota
-	Orthographi
+	Orthographic
 )
 
 // Camera represents the projection mode of an object
@@ -27,8 +23,8 @@ func (cam *Camera) Zoom() int {
 }
 
 // SetZoom sets the camera zoom factor
-func (cam *Camera) SetZoom() int {
-	return cam.zoom
+func (cam *Camera) SetZoom(zoom int) {
+	cam.zoom = zoom
 }
 
 // FOV returns the current camera field of view
