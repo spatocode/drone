@@ -6,52 +6,61 @@ import (
 
 // Geometry is a parent struct for all geometrical shapes
 type Geometry struct {
-	size karid.Size
 	position karid.Position
 	color karid.Color
 }
 
-func (geo *geometry) SetSize(size karid.Size) {
-	geo.size = size
+func (geo *Geometry) AddObject(obj karid.Object) {
 }
 
-func (geo *geometry) SetPosition(position karid.Position) {
+// SetPosition sets the position of this geometry
+func (geo *Geometry) SetPosition(position karid.Position) {
 	geo.position = position
 }
 
-func (geo *geometry) RotateX(rad float32) {
+// RotateX rotates this geometry along it's x axis
+func (geo *Geometry) RotateX(rad float32) {
 }
 
-func (geo *geometry) RotateY(rad float32) {
+// RotateY rotates this geometry along it's y axis
+func (geo *Geometry) RotateY(rad float32) {
 }
 
-func (geo *geometry) RotateZ(rad float32) {
+// RotateZ rotates this geometry along z axis
+func (geo *Geometry) RotateZ(rad float32) {
 }
 
-func (geo *geometry) TranslateX(rad float32) {
+// TranslateX translates this geometry along x axis
+func (geo *Geometry) TranslateX(rad float32) {
 }
 
-func (geo *geometry) TranslateY(rad float32) {
+// TranslateY translates this geometry along y axis
+func (geo *Geometry) TranslateY(rad float32) {
 }
 
-func (geo *geometry) TranslateZ(rad float32) {
+// TranslateZ translates this geometry along z axis
+func (geo *Geometry) TranslateZ(rad float32) {
 }
 
-func (geo *geometry) Translate(x, y, z float32) {
+// Translate translates this geometry along it's x, y, z axis
+func (geo *Geometry) Translate(x, y, z float32) {
 }
 
-func (geo *geometry) Rotate(x, y, z float32) {
+// Rotate rotates this geometry along it's x, y, z axis
+func (geo *Geometry) Rotate(x, y, z float32) {
 }
 
-func (geo *geometry) Position() karid.Position {
+// Position returns the position of this geometry
+func (geo *Geometry) Position() karid.Position {
 	return geo.position
 }
 
-func (geo *geometry) SetColor(color karid.Color) {
+// SetColor sets the color of this geometry
+func (geo *Geometry) SetColor(color karid.Color) {
 	geo.color = color
 }
 
 // New creates a new geometry
-func New() karid.Geometry {
-	return &geometry{}
+func New() *Geometry {
+	return &Geometry{}
 }
